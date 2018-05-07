@@ -32,7 +32,11 @@ class Board < ApplicationRecord
     ELKMONT_EXCHANGE]
   def generate_board
     25.times do
-      beers << { beer: BREWERIES.sample.sample, drank: false }
+      beer = BREWERIES.sample.sample
+      while beers.map { |x| x['beer'] }.include?(beer)
+        beer = BREWERIES.sample.sample
+      end
+      beers << { beer: beer, drank: false }
     end
     beers[12] = { beer: 'Get on the bus', drank: true}
     save
