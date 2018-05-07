@@ -1,0 +1,15 @@
+<table style="height: 50%;">
+  <% @board.beers.each_with_index do |beer, index| %>
+    <% if (index + 1) % 5 == 1 %>
+      <tr style="height: 182px; padding: none">
+    <% end %>
+    <td style="width: 20%; border-style: solid">
+      <div style="text-align: center">
+        <h1><%= beer['beer'] %></h1>
+      </div>
+    </td>
+    <% if (index + 1) % 5 == 0 %>
+      </tr>
+    <% end %>
+  <% end %>
+</div>
