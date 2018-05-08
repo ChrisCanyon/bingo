@@ -12,7 +12,7 @@ $ ->
     shouldBeAsync = true
     request = new XMLHttpRequest
 
-    test = ->
+    handle_response = ->
       check_bingo = ->
         rows = document.getElementById('bingo-board').children[0].children
         console.log rows
@@ -74,7 +74,7 @@ $ ->
           space.style.backgroundColor = 'lightgreen'
           check_bingo()
 
-    $.post(url,'', test)
+    $.post(url,'', handle_response())
     # request.open(method, url, shouldBeAsync)
     # request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     # request.send(postData)
