@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-
   $('.bingo-button').click ->
     return if this.id.split('/')[1] == '12'
     url = encodeURI("http://localhost:3000/boards/" + this.id)
@@ -15,51 +14,52 @@ $ ->
     request.onload = ->
       check_bingo = ->
         rows = document.getElementById('bingo-board').children[0].children
+        console.log rows
         i = 0
         while i < 5
           bingo = true
           j = 0
           while j < 5
-            if rows[i].children[j].style.backgroundColor != 'lightgreen'
-              bingo = false
-              j++
-          if bingo
-            alert 'Bingo!'
-          return
-          i++
-
-        i = 0
-        while i < 5
-          bingo = true
-          j = 0
-          while j < 5
-            if rows[j].children[i].style.backgroundColor != 'lightgreen'
+            if rows[i].children[j].children[0].style.backgroundColor != 'lightgreen'
               bingo = false
             j++
           if bingo
             alert 'Bingo!'
-          return
+            return
+          i++
+
+        i = 0
+        while i < 5
+          bingo = true
+          j = 0
+          while j < 5
+            if rows[j].children[i].children[0].style.backgroundColor != 'lightgreen'
+              bingo = false
+            j++
+          if bingo
+            alert 'Bingo!'
+            return
           i++
 
         bingo = true
         i = 0
         while i < 5
-          if rows[i].children[i].style.backgroundColor != 'lightgreen'
+          if rows[i].children[i].children[0].style.backgroundColor != 'lightgreen'
             bingo = false
           i++
         if bingo
           alert 'Bingo!'
-        return
+          return
 
         bingo = true
-        i = 4
-        while i <= 0
-          if rows[i].children[i].style.backgroundColor != 'lightgreen'
+        i = 0
+        while i < 5
+          if rows[i].children[4 - i].children[0].style.backgroundColor != 'lightgreen'
             bingo = false
-          i--
+          i++
         if bingo
           alert 'Bingo!'
-        return
+          return
 
       status = request.status
       data = request.responseText
