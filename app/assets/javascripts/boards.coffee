@@ -5,7 +5,7 @@
 $ ->
   $('.bingo-button').click ->
     return if this.id.split('/')[1] == '12'
-    url = encodeURI("http://localhost:3000/boards/" + this.id)
+    url = encodeURI("https://knoxbrewbingo.herokuapp.com/boards/" + this.id)
     method = 'POST'
     postData = ''
     shouldBeAsync = true
