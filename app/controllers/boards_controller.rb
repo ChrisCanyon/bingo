@@ -6,10 +6,9 @@ class BoardsController < ApplicationController
   end
 
   def update
-    p 'updating'
     p params
     @board = Board.find_by(id: params[:id])
-    beer_index = params[:beer].to_i
+    beer_index = params[:beer_index].to_i
     to_update = @board.beers[beer_index]
     to_update['drank'] = !to_update['drank']
     @board.save

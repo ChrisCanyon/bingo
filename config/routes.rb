@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'login#new'
   post 'create_board', to: 'login#create'
   get 'boards/:id/:nickname', to: 'boards#show', as: 'boards'
-  post '/boards/:id/:beer', to: 'boards#update', as: 'update_board'
+  post '/boards/:id/:beer_index', to: 'boards#update', as: 'update_board'
 end
