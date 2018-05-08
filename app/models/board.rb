@@ -35,16 +35,12 @@ class Board < ApplicationRecord
   def generate_board
     25.times do
       beer = BREWERIES.sample.sample
-      "picked beer: #{beer}"
       compressed_beers = beers.map{ |x| x[:beer] }
       pp compressed_beers
 
       while compressed_beers.include?(beer)
-        p 'beer already used'
         beer = BREWERIES.sample.sample
-        p "new beer: #{beer}"
       end
-      p "adding beer: #{beer}"
       beers << { beer: beer, drank: false }
     end
     beers[12] = { beer: 'Free Space!', drank: true}
