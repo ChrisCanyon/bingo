@@ -6,12 +6,13 @@ $ ->
   $('.bingo-button').click ->
     return if this.id.split('/')[1] == '12'
     url = encodeURI("https://knoxbrewbingo.herokuapp.com/boards/" + this.id)
+
     method = 'POST'
     postData = ''
     shouldBeAsync = true
     request = new XMLHttpRequest
 
-    request.onload = ->
+    test = ->
       check_bingo = ->
         rows = document.getElementById('bingo-board').children[0].children
         console.log rows
@@ -73,6 +74,7 @@ $ ->
           space.style.backgroundColor = 'lightgreen'
           check_bingo()
 
-    request.open(method, url, shouldBeAsync)
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.send(postData)
+    $.post(url,'', test)
+    # request.open(method, url, shouldBeAsync)
+    # request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    # request.send(postData)
