@@ -27,18 +27,27 @@ class Board < ApplicationRecord
     'Brown Ale', 'Outmeal Stout', 'Imperial Stout', 'IPA', 'Multigrain IPA', 'Rye IPA',
     'Wild IPA', 'Hoppy Belgian', 'Double IPA', 'Coffee Lager', 'Light Lager With Grapefruit',
     'Barrel Aged Smoked & Spiced Porter']
+  DOWNTOWN_GRILL_AND_BREWERY = ['White Mule Ale', 'Woodruff IPA', 'New World Porter', 'Nut Brown Ale',
+    'State Street Stout', 'Downtown Blonde Ale', 'Alt', "Grey Beard's Barley Wine"]
   BREWERIES = [PRETENTIOUS_BREWING_COMPANY, LAST_DAYS_OF_AUTUMN,
     BALTER_BEERWORKS, ALLIANCE_BREWING_COMPANY, CRAFTY_BASTARD,
-    ELKMONT_EXCHANGE]
+    ELKMONT_EXCHANGE, DOWNTOWN_GRILL_AND_BREWERY]
   def generate_board
     25.times do
       beer = BREWERIES.sample.sample
-      while beers.map { |x| x['beer'] }.include?(beer)
+      "picked beer: #{beer}"
+      compressed_beers = beers.map{ |x| x[:beer] }
+      pp compressed_beers
+
+      while compressed_beers.include?(beer)
+        p 'beer already used'
         beer = BREWERIES.sample.sample
+        p "new beer: #{beer}"
       end
+      p "adding beer: #{beer}"
       beers << { beer: beer, drank: false }
     end
-    beers[12] = { beer: 'Get on the bus', drank: true}
+    beers[12] = { beer: 'Free Space!', drank: true}
     save
   end
 end
