@@ -1,0 +1,16 @@
+<table id="leader_board">
+  <% @boards.each_with_index do |board, index| %>
+    <tr>
+      <td>
+        <%= "#{index+1}. #{board.nickname}" %>
+      </td>
+      <td style="text-align: right">
+        <% if board.distance == 0 %>
+          <%= "#{board.nickname} BINGO!" %>
+        <% else %>
+          <%= "#{board.distance} beers to go" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

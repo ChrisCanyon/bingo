@@ -1,15 +1,21 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-drinkLog = ->
+update = ->
   url = window.location.origin + "/drink_log"
   $.get(url, (data) ->
     drink_log_table = document.getElementById('drink_log')
     drink_log_table.parentElement.innerHTML = data
   )
 
+  url = window.location.origin + "/leader_board"
+  $.get(url, (data) ->
+    drink_log_table = document.getElementById('leader_board')
+    drink_log_table.parentElement.innerHTML = data
+  )
+
 window.setInterval( ->
-  drinkLog()
+  update()
 , 5000)
 
 $ ->

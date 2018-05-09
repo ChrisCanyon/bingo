@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'boards/:id/:nickname', to: 'boards#show', as: 'boards'
   post '/boards/:id/:beer_index', to: 'boards#update', as: 'update_board'
   get 'drink_log', to: 'drink_log#index'
+  get 'leader_board', to: 'leader_board#index'
 end
