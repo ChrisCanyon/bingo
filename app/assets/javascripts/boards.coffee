@@ -1,6 +1,14 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+drinkLog = ->
+  setTimeout(console.log('loggy doggy') ,1)
+
+window.setInterval( ->
+  drinkLog()
+, 5000)
+
+window.set = setTimeout(drinkLog(),1000)
 
 $ ->
   $('.bingo-button').click ->

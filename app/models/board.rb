@@ -43,7 +43,7 @@ class Board < ApplicationRecord
       end
       beers << { beer: beer, drank: false }
     end
-    beers[12] = { beer: 'Free Space!', drank: true}
+    beers[12] = { beer: 'Get on the bus', drank: true}
     save
   end
 end
