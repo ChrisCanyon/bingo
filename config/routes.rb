@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post 'create_board', to: 'login#create'
   get 'boards/:id/:nickname', to: 'boards#show', as: 'boards'
   post '/boards/:id/:beer_index', to: 'boards#update', as: 'update_board'
+  get 'drink_log', to: 'drink_log#index'
 end

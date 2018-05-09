@@ -2,13 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 drinkLog = ->
-  setTimeout(console.log('loggy doggy') ,1)
+  url = window.location.origin + "/drink_log"
+  $.get(url, (data) ->
+    drink_log_table = document.getElementById('drink_log')
+    drink_log_table.parentElement.innerHTML = data
+  )
 
 window.setInterval( ->
   drinkLog()
 , 5000)
-
-window.set = setTimeout(drinkLog(),1000)
 
 $ ->
   $('.bingo-button').click ->
