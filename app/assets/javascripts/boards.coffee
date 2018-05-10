@@ -16,7 +16,7 @@ update = ->
 
 window.setInterval( ->
   update()
-, 5000)
+, 60000)
 
 $ ->
   $('.bingo-button').click ->

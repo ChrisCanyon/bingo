@@ -36,7 +36,6 @@ class Board < ApplicationRecord
     25.times do
       beer = BREWERIES.sample.sample
       compressed_beers = beers.map{ |x| x[:beer] }
-      pp compressed_beers
 
       while compressed_beers.include?(beer)
         beer = BREWERIES.sample.sample
