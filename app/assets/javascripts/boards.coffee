@@ -78,3 +78,4 @@ $ ->
         check_bingo()
 
     $.post url, handle_response(this)
+    update()
