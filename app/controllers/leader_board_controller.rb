@@ -5,6 +5,6 @@ class LeaderBoardController < ApplicationController
   end
 
   def leader_board
-    Board.where("created_at >= :date", date: DateTime.new.beginning_of_day).sort {|x,y| y.distance <=> x.distance }
+    Board.where("created_at >= :date", date: DateTime.now.beginning_of_day).sort {|x,y| y.distance <=> x.distance }
   end
 end

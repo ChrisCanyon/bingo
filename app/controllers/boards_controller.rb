@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find_by(nickname: params[:nickname], id: params[:id])
-    @drink_log = Drank.all
+    @drink_log = Drank.where("created_at >= :date", date: DateTime.now.beginning_of_day)
     @boards = leader_board
   end
 
@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
   end
 
   def leader_board
-    Board.all.sort {|x,y| y.distance <=> x.distance }
+    Board.where("created_at >= :date", date: DateTime.now.beginning_of_day).sort {|x,y| y.distance <=> x.distance }
   end
 
   def distance
