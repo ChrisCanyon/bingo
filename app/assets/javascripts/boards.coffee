@@ -78,4 +78,6 @@ $ ->
         check_bingo()
 
     $.post url, handle_response(this)
-    update()
+    window.setTimeout( ->
+      update()
+    , 1000)
